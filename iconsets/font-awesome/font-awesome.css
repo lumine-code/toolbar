@@ -402,9 +402,6 @@ readers do not read off random characters that represent icons */
 .fa-atlassian:before {
   content: "\f77b"; }
 
-.fa-atom:before {
-  content: "\f5d2"; }
-
 .fa-audible:before {
   content: "\f373"; }
 
@@ -4394,7 +4391,7 @@ readers do not read off random characters that represent icons */
   font-style: normal;
   font-weight: 900;
   font-display: auto;
-  src: url("atom://tool-bar/iconsets/font-awesome/fa-solid-900.woff") format("woff"); }
+  src: url("lumine://toolbar/iconsets/font-awesome/fa-solid-900.woff") format("woff"); }
 
 .fa,
 .fas {
@@ -4406,7 +4403,7 @@ readers do not read off random characters that represent icons */
  font-style: normal;
  font-weight: normal;
  font-display: auto;
- src: url("atom://tool-bar/iconsets/font-awesome/fa-brands-400.woff") format("woff"); }
+ src: url("lumine://toolbar/iconsets/font-awesome/fa-brands-400.woff") format("woff"); }
 
 .fab {
  font-family: 'Font Awesome 5 Brands'; }

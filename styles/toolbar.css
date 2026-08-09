@@ -1,0 +1,108 @@
+@import url("lumine://toolbar/iconsets/foundation/foundation-icons.css");
+@import url("lumine://toolbar/iconsets/font-awesome/font-awesome.css");
+@import url("lumine://toolbar/iconsets/icomoon/icomoon.css");
+@import url("lumine://toolbar/iconsets/ionicons/ionicons.css");
+@import url("lumine://toolbar/iconsets/mdi/materialdesignicons.css");
+@import url("lumine://toolbar/iconsets/devicon/devicon.css");
+
+.toolbar {
+  display: flex;
+  flex: none;
+  gap: 2px;
+  overflow: auto;
+  padding: 4px;
+  color: var(--text-color);
+  background: var(--tool-panel-background-color, var(--base-background-color));
+  border: 1px solid var(--base-border-color);
+}
+
+.toolbar-horizontal {
+  flex-direction: row;
+  width: 100%;
+}
+
+.toolbar-vertical {
+  flex-direction: column;
+  height: 100%;
+}
+
+.toolbar-button {
+  flex: none;
+  min-width: calc(var(--toolbar-icon-size) + 10px);
+  min-height: calc(var(--toolbar-icon-size) + 10px);
+  padding: 5px;
+  font-size: var(--toolbar-icon-size);
+  line-height: 1;
+}
+
+.toolbar-button.disabled {
+  opacity: 0.45;
+}
+
+.toolbar-button.selected {
+  color: var(--text-color-selected);
+  background: var(--background-color-selected);
+}
+
+.toolbar-spacer {
+  flex: none;
+  margin: 3px;
+  border: 0;
+  border-left: 1px solid var(--base-border-color);
+}
+
+.toolbar-vertical .toolbar-spacer {
+  width: auto;
+  height: 0;
+  border-top: 1px solid var(--base-border-color);
+  border-left: 0;
+}
+
+.toolbar-horizontal .toolbar-item-align-end {
+  margin-left: auto;
+}
+
+.toolbar-vertical .toolbar-item-align-end {
+  margin-top: auto;
+}
+
+.toolbar.gutter-start {
+  box-shadow: inset 10px 0 10px -12px var(--text-color);
+}
+
+.toolbar.gutter-end {
+  box-shadow: inset -10px 0 10px -12px var(--text-color);
+}
+
+.toolbar-vertical.gutter-start {
+  box-shadow: inset 0 10px 10px -12px var(--text-color);
+}
+
+.toolbar-vertical.gutter-end {
+  box-shadow: inset 0 -10px 10px -12px var(--text-color);
+}
+
+.toolbar-12px {
+  --toolbar-icon-size: 12px;
+}
+.toolbar-14px {
+  --toolbar-icon-size: 14px;
+}
+.toolbar-16px {
+  --toolbar-icon-size: 16px;
+}
+.toolbar-18px {
+  --toolbar-icon-size: 18px;
+}
+.toolbar-21px {
+  --toolbar-icon-size: 21px;
+}
+.toolbar-24px {
+  --toolbar-icon-size: 24px;
+}
+.toolbar-28px {
+  --toolbar-icon-size: 28px;
+}
+.toolbar-32px {
+  --toolbar-icon-size: 32px;
+}

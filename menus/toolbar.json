@@ -1,0 +1,24 @@
+{
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "Toolbar",
+          "submenu": [
+            { "label": "Toggle", "command": "toolbar:toggle" },
+            {
+              "label": "Position",
+              "submenu": [
+                { "label": "Left", "command": "toolbar:position-left" },
+                { "label": "Right", "command": "toolbar:position-right" },
+                { "label": "Top", "command": "toolbar:position-top" },
+                { "label": "Bottom", "command": "toolbar:position-bottom" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

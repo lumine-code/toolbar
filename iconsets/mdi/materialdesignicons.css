@@ -1,7 +1,7 @@
 /* MaterialDesignIcons.com */
 @font-face {
   font-family: "Material Design Icons";
-  src: url("atom://tool-bar/iconsets/mdi/materialdesignicons-webfont.woff") format("woff");
+  src: url("lumine://toolbar/iconsets/mdi/materialdesignicons-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -1715,14 +1715,6 @@
 
 .mdi-atm::before {
   content: "\FD23";
-}
-
-.mdi-atom::before {
-  content: "\F767";
-}
-
-.mdi-atom-variant::before {
-  content: "\FE98";
 }
 
 .mdi-attachment::before {

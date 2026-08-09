@@ -1,61 +1,106 @@
 {
-  "name": "tool-bar",
-  "version": "1.4.4",
-  "description": "Package providing customisable tool bar",
+  "name": "toolbar",
+  "author": "lumine-code",
+  "version": "1.0.0",
+  "description": "Provide an extensible toolbar docked to the workspace edge.",
   "keywords": [
-    "toolbar",
-    "tool-bar",
+    "buttons",
+    "commands",
+    "dock",
+    "icons",
     "service"
   ],
+  "repository": "https://github.com/lumine-code/toolbar",
+  "bugs": {
+    "url": "https://github.com/lumine-code/toolbar/issues"
+  },
   "license": "MIT",
-  "main": "./dist/tool-bar",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/atom-community/tool-bar"
-  },
-  "scripts": {
-    "lint": "eslint . --fix --ext js,json && remark *.md",
-    "test:lint": "eslint . --ext js,json && remark *.md",
-    "test": "atom --test spec",
-    "clean": "shx rm -rf dist",
-    "debug": "npm run clean && shx cp -r src dist && cross-env NODE_ENV=development cross-env BABEL_ENV=development babel dist --out-dir dist",
-    "dev": "npm run clean && cross-env NODE_ENV=development cross-env BABEL_ENV=production rollup -c -w",
-    "build": "npm run clean && cross-env NODE_ENV=production cross-env BABEL_ENV=production rollup -c",
-    "build-commit": "build-commit -o dist",
-    "prepare": "npm run build"
-  },
-  "devDependencies": {
-    "@types/atom": "latest",
-    "eslint": "^7.31.0",
-    "babel-eslint": "^10.1.0",
-    "eslint-plugin-json": "^3.0.0",
-    "remark-cli": "^10.0.0",
-    "remark-preset-lint-recommended": "^6.0.0",
-    "rollup": "^2.53.3",
-    "@rollup/plugin-node-resolve": "^13.0.4",
-    "@rollup/plugin-commonjs": "^21.0.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-css-only": "^3.1.0",
-    "rollup-plugin-execute": "^1.1.1",
-    "rollup-plugin-babel": "^4.4.0",
-    "csso-cli": "^3.0.0",
-    "shx": "^0.3.2",
-    "@babel/core": "^7.14.8",
-    "@babel/cli": "^7.14.8",
-    "@babel/preset-env": "^7.14.8",
-    "@babel/plugin-proposal-optional-chaining": "7.14.5",
-    "build-commit": "^0.1.4",
-    "cross-env": "^7.0.3"
-  },
+  "main": "./lib/toolbar",
+  "types": "./types/index.d.ts",
+  "files": [
+    "docs",
+    "iconsets",
+    "keymaps",
+    "lib",
+    "menus",
+    "spec",
+    "styles",
+    "types"
+  ],
   "engines": {
-    "atom": ">=1.20.0"
+    "lumine": "^1.0.0"
+  },
+  "backgroundTips": [
+    "Move the toolbar to another workspace edge with a toolbar position command"
+  ],
+  "scripts": {
+    "test": "lumine --test spec",
+    "lint": "eslint . --max-warnings 0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "configSchema": {
+    "visible": {
+      "title": "Visible",
+      "description": "Show the toolbar at the configured workspace edge.",
+      "type": "boolean",
+      "default": true
+    },
+    "iconSize": {
+      "title": "Icon Size",
+      "description": "Set the size of toolbar icons and controls.",
+      "type": "string",
+      "enum": [
+        "12px",
+        "14px",
+        "16px",
+        "18px",
+        "21px",
+        "24px",
+        "28px",
+        "32px"
+      ],
+      "default": "24px"
+    },
+    "position": {
+      "title": "Position",
+      "description": "Choose the workspace edge that owns the toolbar.",
+      "type": "string",
+      "enum": [
+        "Top",
+        "Right",
+        "Bottom",
+        "Left"
+      ],
+      "default": "Left"
+    },
+    "fullWidth": {
+      "title": "Full Width",
+      "description": "Use the full window width when positioned at the top or bottom.",
+      "type": "boolean",
+      "default": true
+    },
+    "useGutter": {
+      "title": "Overflow Shadows",
+      "description": "Indicate hidden controls when the toolbar can be scrolled.",
+      "type": "boolean",
+      "default": false
+    }
   },
   "providedServices": {
-    "tool-bar": {
-      "description": "A container for buttons at workspace edge",
+    "toolbar": {
+      "description": "Create grouped buttons and controls at the workspace edge.",
       "versions": {
-        "1.0.0": "provideToolBar"
+        "1.0.0": "provideToolbar"
       }
     }
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-n": "^18.2.2",
+    "globals": "^17.9.0",
+    "prettier": "^3.9.6"
   }
 }

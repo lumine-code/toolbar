@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: "Ionicons";
-  src: url("atom://tool-bar/iconsets/ionicons/ionicons.woff") format("woff");
+  src: url("lumine://toolbar/iconsets/ionicons/ionicons.woff") format("woff");
   font-weight: normal;
   font-style: normal
 }

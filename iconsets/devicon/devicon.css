@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'devicon';
-	src: url('atom://tool-bar/iconsets/devicon/devicon.woff') format('woff');
+	src: url('lumine://toolbar/iconsets/devicon/devicon.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -501,16 +501,6 @@
 .devicon-apple-original:before,
 .devicon-apple-plain:before {
 	content: "\e622";
-}
-
-.devicon-atom-original-wordmark:before,
-.devicon-atom-plain-wordmark:before {
-	content: "\e623";
-}
-
-.devicon-atom-original:before,
-.devicon-atom-plain:before {
-	content: "\e624";
 }
 
 .devicon-backbonejs-plain-wordmark:before {
