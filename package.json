@@ -31,7 +31,7 @@
     "lumine": "^1.0.0"
   },
   "backgroundTips": [
-    "Move the toolbar to another workspace edge with a toolbar position command"
+    "You can show or hide the toolbar with {{ 'toolbar:toggle' | keystroke }}"
   ],
   "scripts": {
     "test": "lumine --test spec",
