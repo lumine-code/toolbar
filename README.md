@@ -12,7 +12,7 @@ Provide an extensible toolbar docked to the workspace edge.
 
 ## Installation
 
-To install `toolbar` search for _toolbar_ in the Install pane of the Lumine settings or run `lumine --install lumine-code/toolbar`.
+To install `toolbar` search for it in the Install pane of the Lumine settings, or run the command `lumine --install lumine-code/toolbar`.
 
 ## Commands
 
@@ -38,7 +38,7 @@ Adjust the toolbar surface in your `styles.css`:
 
 ## Services
 
-- **[toolbar](docs/toolbar.md)** (`1.0.0`): provided to create and manage grouped controls at the workspace edge.
+- [`toolbar`](docs/toolbar.md): provided to create and manage grouped controls at the workspace edge.
 
 ## Contributing
 
