@@ -30,9 +30,6 @@
   "engines": {
     "lumine": "^1.0.0"
   },
-  "backgroundTips": [
-    "You can show or hide the toolbar with {{ 'toolbar:toggle' | keystroke }}"
-  ],
   "scripts": {
     "test": "lumine --test spec",
     "lint": "eslint . --max-warnings 0",
@@ -92,6 +89,11 @@
       "description": "Create grouped buttons and controls at the workspace edge.",
       "versions": {
         "1.0.0": "provideToolbar"
+      }
+    },
+    "background-tips.provider": {
+      "versions": {
+        "1.0.0": "provideBackgroundTips"
       }
     }
   },
