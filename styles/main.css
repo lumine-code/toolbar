@@ -1,10 +1,3 @@
-@import url("lumine://toolbar/iconsets/foundation/foundation-icons.css");
-@import url("lumine://toolbar/iconsets/font-awesome/font-awesome.css");
-@import url("lumine://toolbar/iconsets/icomoon/icomoon.css");
-@import url("lumine://toolbar/iconsets/ionicons/ionicons.css");
-@import url("lumine://toolbar/iconsets/mdi/materialdesignicons.css");
-@import url("lumine://toolbar/iconsets/devicon/devicon.css");
-
 .toolbar {
   display: flex;
   flex: none;

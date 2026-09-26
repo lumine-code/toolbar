@@ -33,6 +33,19 @@ describe("toolbar", () => {
     expect(main.view.element.textContent).toBe("FirstLater");
   });
 
+  it("loads bundled icon styles only when their iconset is used", async () => {
+    const selector = 'link[href="lumine://toolbar/iconsets/mdi/materialdesignicons.css"]';
+    expect(document.head.querySelector(selector)).toBeNull();
+
+    main
+      .provideToolbar()("spec")
+      .addButton({ icon: "settings", iconset: "mdi", callback() {} });
+
+    expect(document.head.querySelector(selector)).not.toBeNull();
+    await lumine.packages.deactivatePackage("toolbar");
+    expect(document.head.querySelector(selector)).toBeNull();
+  });
+
   it("dispatches command callbacks without stealing editor focus", async () => {
     const editor = await lumine.workspace.open();
     const editorElement = lumine.views.getView(editor);
