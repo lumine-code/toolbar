@@ -22,6 +22,21 @@ describe("toolbar", () => {
     expect(main.view.element.classList.contains("toolbar-vertical")).toBe(true);
   });
 
+  it("consumes close from a toolbar control without closing the editor", async () => {
+    const editor = await lumine.workspace.open();
+    main.view.show();
+    const button = main
+      .provideToolbar()("spec")
+      .addButton({ text: "Action", callback() {} });
+    spyOn(lumine.workspace, "closeActivePaneItemOrEmptyPaneOrWindow");
+
+    await lumine.commands.dispatch(button.element, "core:close");
+
+    expect(workspaceElement.querySelector(".toolbar")).toBe(main.view.element);
+    expect(lumine.workspace.closeActivePaneItemOrEmptyPaneOrWindow).not.toHaveBeenCalled();
+    expect(editor.isDestroyed()).toBe(false);
+  });
+
   it("adds grouped controls in priority order", () => {
     const getToolbar = main.provideToolbar();
     const group = getToolbar("spec");
