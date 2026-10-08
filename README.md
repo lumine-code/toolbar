@@ -2,6 +2,8 @@
 
 Provide an extensible toolbar docked to the workspace edge.
 
+Fork of [atom-community/tool-bar](https://github.com/atom-community/tool-bar).
+
 ## Features
 
 - **Left-edge default**: starts as a compact vertical toolbar beside the workspace.
