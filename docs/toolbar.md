@@ -55,7 +55,7 @@ Priorities order controls globally. Negative priorities also align controls at t
 
 ## Teardown
 
-Consumers call `removeItems()` during deactivation. Individual returned items may also be destroyed. The `onDidDestroy` subscription lets consumers react when the provider itself deactivates.
+Consumers call `removeItems()` during deactivation. Individual returned items may also be destroyed: this removes their ordered record and updates the layout, and repeated destruction is harmless. Shared iconset styles remain until provider deactivation. The `onDidDestroy` subscription lets consumers react when the provider itself deactivates.
 
 ## Versioning
 
