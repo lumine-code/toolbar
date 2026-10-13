@@ -1,0 +1,16 @@
+{
+  "title": "toolbar",
+  "description": "Use a toolbar configured with project navigation, search and command-palette actions.",
+  "recordedOn": "2026-10-13",
+  "sourceRevision": "da4f80a3e5ad7587f73a3d3c64ceb86463447e50",
+  "mode": "normal",
+  "fontSettings": "default",
+  "images": [
+    {
+      "file": "demo.png",
+      "label": "Use a toolbar configured with project navigation, search and command-palette actions.",
+      "width": 1200,
+      "height": 760
+    }
+  ]
+}

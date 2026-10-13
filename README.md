@@ -13,6 +13,8 @@ Fork of [atom-community/tool-bar](https://github.com/atom-community/tool-bar).
 - **Rich controls**: supports built-in and bundled icon sets, text, tooltips, state, colors, and modifier actions.
 - **Predictable cleanup**: disposes commands, tooltips, controls, panels, animation frames, and listeners.
 
+![Use a toolbar configured with project navigation, search and command-palette actions.](.github/demo.png)
+
 ## Installation
 
 To install `toolbar` search for it in the Install pane of the Lumine settings, or run the command `lumine --install lumine-code/toolbar`.
