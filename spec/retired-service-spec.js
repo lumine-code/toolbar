@@ -29,7 +29,7 @@ describe("toolbar service retirement", () => {
     main = (await lumine.packages.activatePackage("toolbar")).mainModule;
     const current = main.view;
     retained("late-again").addSpacer();
-    expect(workspace.querySelectorAll(".toolbar").length).toBe(1);
+    expect(workspace.querySelectorAll(".toolbar").length).toBe(0);
     expect(main.view).toBe(current);
     expect(current.items.length).toBe(0);
   });

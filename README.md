@@ -7,6 +7,7 @@ Fork of [atom-community/tool-bar](https://github.com/atom-community/tool-bar).
 ## Features
 
 - **Left-edge default**: starts as a compact vertical toolbar beside the workspace.
+- **No empty strip**: takes no workspace space until a control is added and disappears when the last control is removed.
 - **Flexible docking**: moves to any edge and supports full-width top and bottom layouts.
 - **Grouped service API**: lets packages add and remove their own buttons, spacers, and elements.
 - **Rich controls**: supports built-in and bundled icon sets, text, tooltips, state, colors, and modifier actions.

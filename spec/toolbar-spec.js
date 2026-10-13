@@ -18,8 +18,42 @@ describe("toolbar", () => {
   });
 
   it("docks at the left edge by default", () => {
+    main
+      .provideToolbar()("spec")
+      .addButton({ text: "Action", callback() {} });
     expect(main.view.panel.getItem()).toBe(main.view.element);
     expect(main.view.element.classList.contains("toolbar-vertical")).toBe(true);
+  });
+
+  it("reserves no workspace space without controls, including spacer-only groups", () => {
+    expect(workspaceElement.querySelector(".toolbar")).toBeNull();
+    main.provideToolbar()("spec").addSpacer();
+    lumine.commands.dispatch(workspaceElement, "toolbar:position-bottom");
+    expect(main.view.panel).toBeNull();
+    expect(workspaceElement.querySelector(".toolbar")).toBeNull();
+    expect(lumine.config.get("toolbar.visible")).toBe(true);
+  });
+
+  it("undocks after the last control is removed and returns when a control is added", () => {
+    const group = main.provideToolbar()("spec");
+    group.addSpacer();
+    const button = group.addButton({ text: "Action", callback() {} });
+    expect(workspaceElement.querySelector(".toolbar")).toBe(main.view.element);
+    button.destroy();
+    expect(main.view.panel).toBeNull();
+    expect(workspaceElement.querySelector(".toolbar")).toBeNull();
+    group.addButton({ text: "Another", callback() {} });
+    expect(workspaceElement.querySelector(".toolbar")).toBe(main.view.element);
+  });
+
+  it("does not reveal new controls when the toolbar is disabled in settings", () => {
+    lumine.config.set("toolbar.visible", false);
+    main
+      .provideToolbar()("spec")
+      .addButton({ text: "Action", callback() {} });
+    expect(workspaceElement.querySelector(".toolbar")).toBeNull();
+    lumine.config.set("toolbar.visible", true);
+    expect(workspaceElement.querySelector(".toolbar")).toBe(main.view.element);
   });
 
   it("closes the center editor from a toolbar control while retaining the toolbar", async () => {
@@ -107,6 +141,9 @@ describe("toolbar", () => {
   });
 
   it("moves between workspace edges through commands", () => {
+    main
+      .provideToolbar()("spec")
+      .addButton({ text: "Action", callback() {} });
     lumine.commands.dispatch(workspaceElement, "toolbar:position-bottom");
     const footer = lumine.views.getView(lumine.workspace.panelContainers.footer);
 
@@ -115,6 +152,9 @@ describe("toolbar", () => {
   });
 
   it("toggles visibility and removes its panel on deactivation", async () => {
+    main
+      .provideToolbar()("spec")
+      .addButton({ text: "Action", callback() {} });
     lumine.commands.dispatch(workspaceElement, "toolbar:toggle");
     expect(workspaceElement.querySelector(".toolbar")).toBeNull();
     lumine.commands.dispatch(workspaceElement, "toolbar:toggle");
