@@ -8,7 +8,9 @@
           "submenu": [
             {
               "label": "Toolbar",
-              "command": "toolbar:toggle"
+              "command": "toolbar:toggle",
+              "group": "chrome",
+              "order": 20
             }
           ]
         }
