@@ -1,6 +1,20 @@
 {
   "menu": [
     {
+      "label": "View",
+      "submenu": [
+        {
+          "label": "Toggle View",
+          "submenu": [
+            {
+              "label": "Toolbar",
+              "command": "toolbar:toggle"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "label": "Packages",
       "submenu": [
         {
