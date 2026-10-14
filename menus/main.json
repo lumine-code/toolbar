@@ -4,10 +4,10 @@
       "label": "View",
       "submenu": [
         {
-          "label": "Toggle View",
+          "label": "Appearance",
           "submenu": [
             {
-              "label": "Toolbar",
+              "label": "Toggle Toolbar",
               "command": "toolbar:toggle",
               "group": "chrome",
               "order": 20
