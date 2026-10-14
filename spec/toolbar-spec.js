@@ -25,6 +25,20 @@ describe("toolbar", () => {
     expect(main.view.element.classList.contains("toolbar-vertical")).toBe(true);
   });
 
+  it("accepts a native control constructed in an auxiliary document", async () => {
+    const extra = await lumine.workspace.openEditorWindow({ show: false });
+    try {
+      const element = extra.getDocument().createElement("span");
+      element.textContent = "Auxiliary control";
+      const item = main.provideToolbar()("spec").addItem({ element });
+      expect(item.element).toBe(element);
+      expect(main.view.element.contains(element)).toBeTrue();
+      expect(element.ownerDocument).toBe(document);
+    } finally {
+      await lumine.workspace.discardEditorWindows();
+    }
+  });
+
   it("reserves no workspace space without controls, including spacer-only groups", () => {
     expect(workspaceElement.querySelector(".toolbar")).toBeNull();
     main.provideToolbar()("spec").addSpacer();
