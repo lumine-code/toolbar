@@ -25,7 +25,8 @@
     "menus",
     "spec",
     "styles",
-    "types"
+    "types",
+    "THIRD_PARTY_NOTICES"
   ],
   "engines": {
     "lumine": "^1.0.0"
