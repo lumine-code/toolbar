@@ -1,4 +1,7 @@
-* text=auto
+# Text uses LF on every platform; Windows command scripts require CRLF.
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.bat text eol=crlf
 
 # don't diff machine generated files
 dist/ -diff
