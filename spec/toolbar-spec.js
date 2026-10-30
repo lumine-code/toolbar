@@ -25,6 +25,16 @@ describe("toolbar", () => {
     expect(main.view.element.classList.contains("toolbar-vertical")).toBe(true);
   });
 
+  it("reports menu position choices when settings change outside the menu", () => {
+    const state = (command) =>
+      lumine.commands.getCommandState(command, { target: workspaceElement });
+    expect(state("toolbar:toggle")).toBeNull();
+    expect(state("toolbar:position-left")).toEqual({ type: "radio", checked: true });
+    lumine.config.set("toolbar.position", "Right");
+    expect(state("toolbar:position-left").checked).toBe(false);
+    expect(state("toolbar:position-right").checked).toBe(true);
+  });
+
   it("accepts a native control constructed in an auxiliary document", async () => {
     const extra = await lumine.workspace.openEditorWindow({ show: false });
     try {
