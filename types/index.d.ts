@@ -8,6 +8,7 @@ export interface ToolbarButtonOptions {
   icon?: string;
   iconset?: "ion" | "fa" | "fab" | "fi" | "icomoon" | "devicon" | "mdi";
   text?: string;
+  ariaLabel?: string;
   html?: boolean;
   callback: ToolbarCallback;
   data?: unknown;

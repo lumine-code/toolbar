@@ -117,6 +117,23 @@ describe("toolbar", () => {
     expect(document.head.querySelector(selector)).toBeNull();
   });
 
+  it("uses icon-button styling only for the glyph without a label or badge", () => {
+    const group = main.provideToolbar()("spec");
+    const icon = group.addButton({ icon: "gear", ariaLabel: "Open settings", callback() {} });
+    const labeled = group.addButton({ icon: "gear", text: "Settings", callback() {} });
+    const badged = group.addButton({
+      icon: "bell",
+      text: '<span class="badge">2</span>',
+      html: true,
+      callback() {},
+    });
+
+    expect(icon.element.classList.contains("icon-button")).toBe(true);
+    expect(icon.element.getAttribute("aria-label")).toBe("Open settings");
+    expect(labeled.element.classList.contains("icon-button")).toBe(false);
+    expect(badged.element.classList.contains("icon-button")).toBe(false);
+  });
+
   it("dispatches command callbacks without stealing editor focus", async () => {
     const editor = await lumine.workspace.open();
     const editorElement = lumine.views.getView(editor);

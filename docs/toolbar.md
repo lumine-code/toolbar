@@ -29,6 +29,7 @@ interface ToolbarButtonOptions {
   icon?: string;
   iconset?: "ion" | "fa" | "fab" | "fi" | "icomoon" | "devicon" | "mdi";
   text?: string;
+  ariaLabel?: string;
   tooltip?: string | object;
   priority?: number;
   data?: unknown;
@@ -52,6 +53,8 @@ consumeToolbar(getToolbar) {
 ## Behavior
 
 Priorities order controls globally. Negative priorities also align controls at the trailing edge. Modifier callback maps use combinations of `alt`, `ctrl`, and `shift`, with the empty key as the default action.
+
+A button that specifies an icon and leaves `text` empty uses the shared icon button style. Keep `text` for visible labels and HTML badges. Supply `ariaLabel` when the plain tooltip does not name the action.
 
 ## Teardown
 
