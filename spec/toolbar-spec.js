@@ -117,7 +117,7 @@ describe("toolbar", () => {
     expect(document.head.querySelector(selector)).toBeNull();
   });
 
-  it("uses icon-button styling only for the glyph without a label or badge", () => {
+  it("names icon-only controls and uses the toolbar style for all controls", () => {
     const group = main.provideToolbar()("spec");
     const icon = group.addButton({ icon: "gear", ariaLabel: "Open settings", callback() {} });
     const labeled = group.addButton({ icon: "gear", text: "Settings", callback() {} });
@@ -128,10 +128,11 @@ describe("toolbar", () => {
       callback() {},
     });
 
-    expect(icon.element.classList.contains("icon-button")).toBe(true);
     expect(icon.element.getAttribute("aria-label")).toBe("Open settings");
-    expect(labeled.element.classList.contains("icon-button")).toBe(false);
-    expect(badged.element.classList.contains("icon-button")).toBe(false);
+    for (const control of [icon, labeled, badged]) {
+      expect(control.element).toHaveClass("toolbar-button");
+      expect(control.element).not.toHaveClass("icon-button");
+    }
   });
 
   it("dispatches command callbacks without stealing editor focus", async () => {

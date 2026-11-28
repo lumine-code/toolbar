@@ -28,10 +28,6 @@
   line-height: 1;
 }
 
-.toolbar-button.icon-button {
-  --ui-icon-size: var(--toolbar-icon-size);
-}
-
 .toolbar-button.disabled {
   opacity: 0.45;
 }
